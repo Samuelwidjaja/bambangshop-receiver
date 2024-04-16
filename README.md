@@ -77,7 +77,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement receive function in Notification controller.`
     -   [x] Commit: `Implement list_messages function in Notification service.`
     -   [x] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -90,3 +90,8 @@ This is the place for you to write reflections:
 2. Dalam tutorial ini, kita menggunakan library eksternal lazy_static untuk mendefinisikan Vec dan DashMap sebagai variabel "static". Berbeda dengan Java, di mana kita dapat memperbarui konten dari variabel statis melalui sebuah fungsi statis, Rust tidak mengizinkan hal tersebut. Hal ini disebabkan karena Rust memiliki konsep kepemilikan yang ketat dan menekankan pada keamanan konkurensi. Rust melarang mutasi langsung pada variabel statis karena dapat menyebabkan kondisi race dan data races yang tidak terduga, yang dapat mengakibatkan perilaku program yang tidak dapat diprediksi. Oleh karena itu, variabel statis dalam Rust secara default bersifat tidak dapat diubah (immutable), yang membuat Rust menjadi bahasa yang terkenal karena keamanan dan keandalannya dalam pemrograman konkurensi dibandingkan dengan Java.
 
 #### Reflection Subscriber-2
+1. Saya telah menjelajahi bagian-bagian di luar langkah-langkah dalam tutorial, seperti src/lib.rs. Di dalam `lib.rs`, terdapat dependensi dan konfigurasi awal. Selain itu, terdapat inisialisasi dari APP_CONFIG dan REQUEST_CLIENT yang digunakan di seluruh implementasi kode. Berkas ini bertugas untuk mendefinisikan komponen-komponen yang diperlukan oleh aplikasi. Sedangkan `Cargo.toml` adalah berkas konfigurasi utama untuk proyek Rust. Ini berperan sebagai pusat manajemen dependensi, konfigurasi proyek, dan mendefinisikan metadata proyek. Kedua berkas ini memegang peranan penting dalam menyiapkan dan memelihara proyek Rust, memastikan konsistensi dan kelolaan selama proses pengembangan.
+
+2. Pola Observer memudahkan penambahan subscriber tambahan ke dalam sistem notifikasi, membuat arsitektur kode lebih fleksibel dan dapat berkembang. Hal ini karena pola Observer memisahkan antara penerbit dan pengamatnya. Memunculkan lebih dari satu instansi dari aplikasi utama masih cukup mudah dilakukan karena ada pemrosesan paralel untuk notifikasi, membuat kode lebih efisien.
+
+3. Saya telah mencoba membuat tes sendiri dan meningkatkan dokumentasi pada koleksi Postman saya (menambahkan deskripsi yang jelas untuk setiap permintaan). Walaupun saya belum yakin apakah itu sudah benar, saya yakin bahwa fitur ini sangat berguna untuk pekerjaan saya. Ini membantu melakukan pengujian otomatis saat menguji respons server.
