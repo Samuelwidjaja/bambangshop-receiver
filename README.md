@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [x] Commit: `Implement add function in Notification repository.`
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,8 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Dalam tutorial ini, kita menggunakan RwLock<> untuk menyinkronkan penggunaan Vec of Notifications. Hal ini diperlukan karena kita ingin memastikan bahwa operasi penambahan dan penghapusan notifikasi dari Vec dapat dilakukan secara aman oleh beberapa thread secara bersamaan. RwLock memungkinkan akses bersamaan untuk pembacaan (read) oleh beberapa thread, namun hanya satu thread yang dapat menulis (write) pada satu waktu. Penggunaan RwLock<> lebih cocok untuk kasus ini daripada Mutex<>, karena Mutex<> hanya mengizinkan satu thread untuk mengakses data pada satu waktu, baik untuk membaca maupun menulis.
+
+2. Dalam tutorial ini, kita menggunakan library eksternal lazy_static untuk mendefinisikan Vec dan DashMap sebagai variabel "static". Berbeda dengan Java, di mana kita dapat memperbarui konten dari variabel statis melalui sebuah fungsi statis, Rust tidak mengizinkan hal tersebut. Hal ini disebabkan karena Rust memiliki konsep kepemilikan yang ketat dan menekankan pada keamanan konkurensi. Rust melarang mutasi langsung pada variabel statis karena dapat menyebabkan kondisi race dan data races yang tidak terduga, yang dapat mengakibatkan perilaku program yang tidak dapat diprediksi. Oleh karena itu, variabel statis dalam Rust secara default bersifat tidak dapat diubah (immutable), yang membuat Rust menjadi bahasa yang terkenal karena keamanan dan keandalannya dalam pemrograman konkurensi dibandingkan dengan Java.
 
 #### Reflection Subscriber-2
